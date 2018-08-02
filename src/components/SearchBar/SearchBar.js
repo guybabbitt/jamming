@@ -31,7 +31,10 @@ class SearchBar extends React.Component {
         return (
             <div className="SearchBar">
                 {/* Bind input to a change event to track keystrokes */}
-                <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange} />
+                <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange} onKeyPress={event => {
+            if(event.key === 'Enter'){
+              this.search()
+            }}} />
                 {/* Fire our search method which will call back to App with the current term stored in state */}
                 <a onClick={this.search}>SEARCH</a>
             </div>
